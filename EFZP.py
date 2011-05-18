@@ -48,6 +48,7 @@ def get_reply_text(email_text):
         "[- ]*Forwarded by [\w@ \.,:/]*.*|" + \
         "From: [\w@ \.<>\-]*(\n|\r\n)To: [\w@ \.<>\-]*(\n|\r\n)Date: [\w@ \.<>\-:,]*\n.*|" + \
         "From: [\w@ \.<>\-]*(\n|\r\n)To: [\w@ \.<>\-]*(\n|\r\n)Sent: [\*\w@ \.,:/]*(\n|\r\n).*|" + \
+        "From: [\w@ \.<>\-]*(\n|\r\n)To: [\w@ \.<>\-]*(\n|\r\n)Subject:.*|" + \
         "-* Original Message -*.*)"
     groups = re.search(pattern, email_text, re.IGNORECASE + re.DOTALL)
     reply_text = None
