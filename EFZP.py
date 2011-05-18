@@ -43,8 +43,8 @@ def get_reply_text(email_text):
     #Some clients use -*Original Message-*
     pattern = "(?P<reply_text>" + \
         "On ([a-zA-Z0-9, :/<>@\.\"\[\]]* wrote:.*)|" + \
-        "From: [\w@ \.]* \[mailto:[\w\.]*@[\w\.]*\] .*|" + \
-        "From: [\w@ \.]*(\n|\r\n)Sent: [\*\w@ \.,:/]*(\n|\r\n)To:.*(\n|\r\n).*|" + \
+        "From: [\w@ \.]* \[mailto:[\w\.]*@[\w\.]*\].*|" + \
+        "From: [\w@ \.]*(\n|\r\n)+Sent: [\*\w@ \.,:/]*(\n|\r\n)+To:.*(\n|\r\n)+.*|" + \
         "[- ]*Forwarded by [\w@ \.,:/]*.*|" + \
         "From: [\w@ \.<>\-]*(\n|\r\n)To: [\w@ \.<>\-]*(\n|\r\n)Date: [\w@ \.<>\-:,]*\n.*|" + \
         "From: [\w@ \.<>\-]*(\n|\r\n)To: [\w@ \.<>\-]*(\n|\r\n)Sent: [\*\w@ \.,:/]*(\n|\r\n).*|" + \
