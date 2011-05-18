@@ -158,7 +158,8 @@ def get_body(email_text, check_salutation=True, check_signature=True, check_repl
 
 def get_salutation(email_text):
     #remove reply text fist (e.g. Thanks\nFrom: email@domain.tld causes salutation to consume start of reply_text
-    email_text = email_text[:email_text.find(get_reply_text(email_text))]
+    reply_text = get_reply_text(email_text)
+    if reply_text: email_text = email_text[:email_text.find(reply_text)]
     #Notes on regex:
     #Max of 5 words succeeding first Hi/To etc, otherwise is probably an entire sentence
     salutation_opening_statements = [
@@ -168,6 +169,9 @@ def get_salutation(email_text):
                                      "hey",
                                      "hello",
                                      "thanks",
+                                     "good morning",
+                                     "good afternoon",
+                                     "good evening",
                                      "thankyou",
                                      "thank you"]
     pattern = "\s*(?P<salutation>(" + string.joinfields(salutation_opening_statements, "|") + ")+(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)[\.,\xe2:]+\s*)"
