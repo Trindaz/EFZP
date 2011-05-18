@@ -157,6 +157,8 @@ def get_body(email_text, check_salutation=True, check_signature=True, check_repl
     return email_text
 
 def get_salutation(email_text):
+    #remove reply text fist (e.g. Thanks\nFrom: email@domain.tld causes salutation to consume start of reply_text
+    email_text = email_text[:email_text.find(get_reply_text(email_text))]
     #Notes on regex:
     #Max of 5 words succeeding first Hi/To etc, otherwise is probably an entire sentence
     salutation_opening_statements = [
