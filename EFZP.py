@@ -39,7 +39,7 @@ def parse(email_text, remove_quoted_statements=True):
 def strip_automated_notation(email_text):
     #Use a paramater name email_text to indicate text in the actual email message
     notations = [
-                 "Hi, there has been a new enquiry from Cudo\..*?Enquiry:(?P<email_message>.*)",
+                 "Hi, there has been a new enquiry from\..*?Enquiry:(?P<email_message>.*)",
                  ]
     for n in notations:
         groups = re.match(n, email_text, re.IGNORECASE + re.DOTALL)
@@ -48,7 +48,8 @@ def strip_automated_notation(email_text):
                 email_text = groups.groupdict()["email_message"]
     
     return email_text
-    
+    
+
 def get_reply_text(email_text):
     #Notes on regex
     #Search for classic prefix from GMail and other mail clients "On May 16, 2011, Dave wrote:"
