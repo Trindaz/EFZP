@@ -1,15 +1,13 @@
-#EFZP
-An acronym for Email Functional Zone Parser
+# EFZP
 
-###The idea
 
-It turns this:
+Input:
 
 ```
 "Hi Dave,\nLets meet up this Tuesday\nCheers, Tom\n\nOn Sunday, 15 May 2011 at 5:02 PM, Dave Trindall wrote: Hey Tom,\nHow about we get together ..."
 ```
 
-into this:
+Output:
 
 ```
 {
@@ -20,15 +18,13 @@ into this:
 }
 ```
 
-##Installation
+### Installation
 
 ```bash
 git clone https://github.com/Trindaz/EFZP.git
 ```
 
-or just download [EFZP.py](https://raw.githubusercontent.com/Trindaz/EFZP/master/EFZP.py)
-
-##Usage
+### Usage
 
 This python script
 
