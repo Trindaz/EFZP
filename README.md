@@ -1,5 +1,5 @@
-# EFZP
-EZFP = "Email Functional Zone Parser"
+# email-parser
+Parse an email to get properties like salutation, body, signature, reply.
 
 Input:
 
@@ -21,7 +21,7 @@ Output:
 ### Installation
 
 ```bash
-git clone https://github.com/Trindaz/EFZP.git
+git clone https://github.com/Trindaz/email-parser.git
 ```
 
 ### Usage
