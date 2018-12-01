@@ -1,5 +1,5 @@
 # EFZP
-
+EZFP = "Email Functional Zone Parser"
 
 Input:
 
