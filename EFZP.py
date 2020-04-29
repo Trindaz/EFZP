@@ -44,11 +44,10 @@ def strip_automated_notation(email_text):
     for n in notations:
         groups = re.match(n, email_text, re.IGNORECASE + re.DOTALL)
         if not groups is None:
-            if groups.groupdict().has_key("email_message"):
+            if "email_message" in groups.groupdict():
                 email_text = groups.groupdict()["email_message"]
     
     return email_text
-    
 
 def get_reply_text(email_text):
     #Notes on regex
@@ -71,7 +70,7 @@ def get_reply_text(email_text):
     groups = re.search(pattern, email_text, re.IGNORECASE + re.DOTALL)
     reply_text = None
     if not groups is None:
-        if groups.groupdict().has_key("reply_text"):
+        if "reply_text" in groups.groupdict():
             reply_text = groups.groupdict()["reply_text"]
     return reply_text
     
@@ -102,11 +101,11 @@ def get_signature(email_text):
                               "yours truly",
                               "thanking You",
                               "sent from my iphone"]
-    pattern = "(?P<signature>(" + string.joinfields(sig_opening_statements, "|") + ")(.)*)"
+    pattern = "(?P<signature>(" + '|'.join(sig_opening_statements) + ")(.)*)"
     groups = re.search(pattern, email_text, re.IGNORECASE + re.DOTALL)
     signature = None
     if groups:
-        if groups.groupdict().has_key("signature"):
+        if 'signature' in groups.groupdict():
             signature = groups.groupdict()["signature"]
             reply_text = get_reply_text(email_text[email_text.find(signature):])
             if reply_text: signature = signature.replace(reply_text, "")
@@ -175,11 +174,10 @@ def get_salutation(email_text):
                                      "good evening",
                                      "thankyou",
                                      "thank you"]
-    pattern = "\s*(?P<salutation>(" + string.joinfields(salutation_opening_statements, "|") + ")+(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)[\.,\xe2:]+\s*)"
+    pattern = "\s*(?P<salutation>(" + '|'.join(salutation_opening_statements) + ")+(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)(\s*\w*)[\.,\xe2:]+\s*)"
     groups = re.match(pattern, email_text, re.IGNORECASE)
     salutation = None
     if not groups is None:
-        if groups.groupdict().has_key("salutation"):
+        if "salutation" in groups.groupdict():
             salutation = groups.groupdict()["salutation"]
     return salutation
-    
