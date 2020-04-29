@@ -1,4 +1,6 @@
-# EFZP
+# EmailParser
+
+This Repo is forked from (!https://github.com/Trindaz/EFZP)[Trindaz]
 Parse an email to get properties like salutation, body, signature, reply. These properties are like "zones" in an email, thus the name Email Functional Zone Parser.
 
 Input:
