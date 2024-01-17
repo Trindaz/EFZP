@@ -3,3 +3,6 @@
 
   This product includes software developed at
   Chorus (http://www.chorusindex.com/).
+
+  Updated by Michael Schmid to add compatability with Python 3
+  

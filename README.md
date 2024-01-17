@@ -21,7 +21,7 @@ Output:
 ### Installation
 
 ```bash
-git clone https://github.com/Trindaz/email-parser.git
+git clone https://github.com/mschmidoev/EFZP_python3.git
 ```
 
 ### Usage
